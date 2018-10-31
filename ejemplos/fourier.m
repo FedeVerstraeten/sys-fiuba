@@ -1,0 +1,1 @@
+n = 0:0.0001:2;x1 = cos(2 * pi * 10 * n) + 4 * cos(2 * pi * n);x2 = 4 * cos(2 * pi * 10 * n) + cos (2 * pi * n);figuresubplot(211)plot(fft(x1), 'o--'), axis([0 2 -5 5]), ylabel('x1'), gridsubplot(212)plot(fft(x2), 'o--'), axis([0 2 -5 5]), ylabel('x2'), xlabel('n'), grid
