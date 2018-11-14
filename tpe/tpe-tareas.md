@@ -1,0 +1,57 @@
+# TRABAJO PRACTICO ESPECIAL - TAREAS
+
+## Punto 1:
+  - Escuchar señal, identificar tiempo de discado.
+  - Distinguir tiempo señal y tiempo silencio.
+  - ¿Sección temporal señales DTMF corresponde a una señal periódica infinita?
+
+## Punto 2:
+  - ¿Qué debe cumplir la señal para aplicar Serie de Fourier?
+  - Señal periódica infinita suma 2 senoides con **f1=800Hz** y **f2=1200Hz**, hallar coef. Fourier.
+  - Generar una sección del item anterior y escucharla.
+  - Calcular distribución de coef. para cada una de las 16 combinaciones de DTMF **[f1,f2,f3,f4] X [f1',f2',f3',f4']**.
+
+## Punto 3:
+  - Analiza espectro de los distintos símbolos de la señal `modemDIaling.wav` de manera individual.
+  - Comparación de los espectros.
+  - Trasformada de Fourier del discado completo.
+  - ¿Se puede identificar la secuencia a partir de este espectro? **Resp.:** No, ya que con la TF directamente se pierde información de la evolución temporal de la señal, debemos usar la TFCT con una ventana adecuada.
+  - Realizar la TFCT y caraterizar. Mostrar espectro con el uso de distintas ventanas (hamming, hanning, kaiser, barlet, haav).
+
+## Punto 4:
+  - Calcular frecuencia mínima de muestreo para "trabajar digitalmente" con las señales del discado. Nyquist?
+
+## Punto 5:
+  - Señal discreta en `modemDIaling.wav` obtenida con **Fs = 8kHz**. Pasarlo a fracciones de $\pi$ o a $\omega = 2 \pi f$
+  - Generar una tablapara frecuencias de campo discreto (?)
+
+## Punto 6:
+  - Usar `spectrogram` y T.Fourier. Agregar gráficos.
+  - Identificar visualmente e indicar secuencia de dígitos (los simbolos) que corresponden.
+
+## Punto 7:
+  - Construir generador (función a desarrollar) de secuencias de discado: 
+  - Datos entrada: vector digitos (asociado a frecs. fn y fn'), vector duración digitos, vector duración silencio siguiente.
+  - Salida: Vector con señal discreta xi entre [-127;127]  (?)
+  - Prototipo: `x = gen_discado(digitos[], tiempo_tono[], tiempo_silencio[])`
+  - La señal DTMF generada usarla de test para analizar y decodificar.
+
+## Punto 8:
+  - Construir decodificador: señal DTMF a dígitos ('0','1', ... , 'C','D')
+  - Entrada: myFileDTMF.wav
+  - Salida: impresion por pantalla o archivo txt los caracteres decodif
+  - (Revisar pasos tentativos en enunciado)
+  - Tip: Elevar señal al cuadrado, ventanear con un comparador ( x(t)^2 > umbral == '1' ), calcular DFT, buscar en tabla.
+
+## Punto 9:
+  - Decodificar por banco de filtros pasabanda centrado en frecuencias de codificacion DTMF. 
+  - (Revisar pasos tentativos en enunciado).
+
+## Punto 10:
+  - Transformada Z: diagrama polos y ceros para cada filtro.
+  - Graficar fase de respuesta en frecuencia.
+
+## Punto 11 [Opcional]:
+  - Agregar a la señal de marcado ruido y pasar por los filtros.
+  - Ruido aleatorio: blanco (random vector), voces superpuestas, etc.
+  - Testear la inmunidad de los filtros al ruido.
