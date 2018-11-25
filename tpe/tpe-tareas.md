@@ -1,15 +1,15 @@
 # TRABAJO PRACTICO ESPECIAL - TAREAS
 
 ## Punto 1:
-  -**[OK]** Escuchar señal, identificar tiempo de discado.
-  -**[OK]** Distinguir tiempo señal y tiempo silencio.
+  - **[OK]** Escuchar señal, identificar tiempo de discado.
+  - **[OK]** Distinguir tiempo señal y tiempo silencio.
   - **[OK]** Agregar al informe secciones
   - ¿Sección temporal señales DTMF corresponde a una señal periódica infinita?
   - **[?]** Identificar frecuencia fundamental.
 
 ## Punto 2:
   - **[OK]** ¿Qué debe cumplir la señal para aplicar Serie de Fourier?
-  - **[OK]**Señal periódica infinita suma 2 senoide scon **f1=800Hz** y **f2=1200Hz**, hallar coef. Fourier. (Preguntar por qué las "deltas" quedan con una altura de la mitad de cantidad de muestras -> N/2)
+  - **[OK]** Señal periódica infinita suma 2 senoide scon **f1=800Hz** y **f2=1200Hz**, hallar coef. Fourier. (Preguntar por qué las "deltas" quedan con una altura de la mitad de cantidad de muestras -> N/2)
   - **[OK]** Generar una sección del item anterior y escucharla.
   - Calcular distribución de coef. para cada una de las 16 combinaciones de DTMF **[f1,f2,f3,f4] X [f1',f2',f3',f4']**.
 
