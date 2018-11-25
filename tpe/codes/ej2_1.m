@@ -50,7 +50,7 @@ axis ([0 D/500 -2 2]);
 xlabel ('Tiempo [seg]');
 ylabel ('Amplitud');
 grid minor;
-print([img_path 'two_sin' '.png'],'-dpng');
+print([img_path 'ej2_two_sin' '.png'],'-dpng');
 
 %%
 %Frequency analysis
@@ -75,7 +75,7 @@ axis([0 1500 0 1.1*max(pks)]);
 xlabel('Frecuencia (Hz)');
 ylabel('Amplitud |X(f)|');
 grid minor;
-print([img_path 'coef_fourier' '.png'],'-dpng');
+print([img_path 'ej2_coef_fourier' '.png'],'-dpng');
 
 %%
 % Export signal
