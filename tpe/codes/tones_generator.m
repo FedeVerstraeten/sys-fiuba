@@ -28,11 +28,11 @@ output:
 
 function [t, x_out] = tones_generator(fs, N, D, S)
 
-x_out = 0;
+x_out = [];
 tsec = 0;
 
 % Digits matrix
-dig=['1' '2' '3' 'A';'4' '5' '6' 'B';'7' '8' '9' 'C';'*' '0' '#' 'D'];
+digit=['1' '2' '3' 'A';'4' '5' '6' 'B';'7' '8' '9' 'C';'*' '0' '#' 'D'];
 
 % Rows matrix DTMF
 fx = [697, 770, 852, 941];
@@ -47,8 +47,8 @@ for i = 1:length(N)
     silence = zeros(1,S2);
 
     % Find in digits matrix
-    try find(dig==N(i));
-      [row,col]=find(dig==N(i));
+    try find(digit==N(i));
+      [row,col]=find(digit==N(i));
       x = [cos(2*pi*fx(row).*t) + cos(2*pi*fy(col).*t) silence];
     catch
       D2 = floor(D(i)*fs);
@@ -56,6 +56,7 @@ for i = 1:length(N)
       x = [digit_err silence];
     end
 
+    % Concat each signal digit
     x_out = [x_out x];
     tsec = tsec + D(i) + S(i);    
 end
