@@ -1,14 +1,16 @@
 # TRABAJO PRACTICO ESPECIAL - TAREAS
 
 ## Punto 1:
-  - Escuchar señal, identificar tiempo de discado.
-  - Distinguir tiempo señal y tiempo silencio.
+  -**[OK]** Escuchar señal, identificar tiempo de discado.
+  -**[OK]** Distinguir tiempo señal y tiempo silencio.
+  - **[OK]** Agregar al informe secciones
   - ¿Sección temporal señales DTMF corresponde a una señal periódica infinita?
+  - **[?]** Identificar frecuencia fundamental.
 
 ## Punto 2:
-  - ¿Qué debe cumplir la señal para aplicar Serie de Fourier?
-  - Señal periódica infinita suma 2 senoides con **f1=800Hz** y **f2=1200Hz**, hallar coef. Fourier.
-  - Generar una sección del item anterior y escucharla.
+  - **[OK]** ¿Qué debe cumplir la señal para aplicar Serie de Fourier?
+  - **[OK]**Señal periódica infinita suma 2 senoide scon **f1=800Hz** y **f2=1200Hz**, hallar coef. Fourier. (Preguntar por qué las "deltas" quedan con una altura de la mitad de cantidad de muestras -> N/2)
+  - **[OK]** Generar una sección del item anterior y escucharla.
   - Calcular distribución de coef. para cada una de las 16 combinaciones de DTMF **[f1,f2,f3,f4] X [f1',f2',f3',f4']**.
 
 ## Punto 3:
@@ -23,17 +25,17 @@
 
 ## Punto 5:
   - Señal discreta en `modemDIaling.wav` obtenida con **Fs = 8kHz**. Pasarlo a fracciones de $\pi$ o a $\omega = 2 \pi f$
-  - Generar una tablapara frecuencias de campo discreto (?)
+  - Generar una tabla para frecuencias de campo discreto (?)
 
 ## Punto 6:
   - Usar `spectrogram` y T.Fourier. Agregar gráficos.
-  - Identificar visualmente e indicar secuencia de dígitos (los simbolos) que corresponden.
+  - **[OK]** Identificar visualmente e indicar secuencia de dígitos (los simbolos) que corresponden.
 
 ## Punto 7:
-  - Construir generador (función a desarrollar) de secuencias de discado: 
-  - Datos entrada: vector digitos (asociado a frecs. fn y fn'), vector duración digitos, vector duración silencio siguiente.
-  - Salida: Vector con señal discreta xi entre [-127;127]  (?)
-  - Prototipo: `x = gen_discado(digitos[], tiempo_tono[], tiempo_silencio[])`
+  - **[OK]** Construir generador (función a desarrollar) de secuencias de discado: 
+  - **[OK]** Datos entrada: vector digitos (asociado a frecs. fn y fn'), vector duración digitos, vector duración silencio siguiente.
+  - **[?]** Salida: Vector con señal discreta xi entre [-127;127]  (?)
+  - **[OK]** Prototipo: `x = gen_discado(digitos[], tiempo_tono[], tiempo_silencio[])`
   - La señal DTMF generada usarla de test para analizar y decodificar.
 
 ## Punto 8:
