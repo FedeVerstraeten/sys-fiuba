@@ -11,6 +11,6 @@ for k=1:(length(a)-1)
 end
 
 % Output: x = 1+2cos(2*(2*pi/T)*t)
-
-plot(t,x)
+figure;
+plot(t,x);
 
