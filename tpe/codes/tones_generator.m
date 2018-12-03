@@ -48,7 +48,6 @@ for i = 1:length(dig_vec)
     silence = zeros(1,S2);
 
     % Find in digits matrix
-    %dig_vec(i)
     dig=num2str(dig_vec(i),'%d');
     
     try find(digits==dig);
