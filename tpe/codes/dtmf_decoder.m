@@ -20,15 +20,16 @@ PARAMETERS:
 input:
 -> x_in := input signal
 -> fs := sampling frequency 
--> e_th := energy threshold 
--> time_div: time division
+-> e_th := energy threshold [0;1]
+-> time_div := time division
+-> min_peak := min peak frequency
 
 output:
 <- dig_out := digits vector
 ----------------------------------------------------------- 
 %}
 
-function [dig_out] = dtmf_decoder(x_in,fs,e_th,time_div)
+function [dig_out] = dtmf_decoder(x_in,fs,e_th,time_div,min_peak)
 
   dig_out = [];
   dig_dec = [];
@@ -39,14 +40,14 @@ function [dig_out] = dtmf_decoder(x_in,fs,e_th,time_div)
   % Signal limits initialization
   sig_init=1;
   sig_fin=0;
-
-  % Min peak FFT
-  min_peak = 0.1;
+  
+  % Max energy power of the signal
+  max_pow = sum(x_in.^2);
   
   for i = 1:length(x_in)-win
     
     % Silence detect
-    if silence_detector(x_in(i:i+(win-1)),e_th)
+    if silence_detector(x_in(i:i+(win-1)),e_th,max_pow)
 
       % i-index is ahead of sig_init+1
       % by a previous signal detection
@@ -66,11 +67,6 @@ function [dig_out] = dtmf_decoder(x_in,fs,e_th,time_div)
         % find peaks freq
          k = fs/2*linspace(0,1,NFFT/2+1);
         [pks,locs] = findpeaks(2*abs(T_x(1:NFFT/2+1)),k','MinPeakHeight',min_peak);
-        figure;
-        plot(k ,2*abs(T_x(1:NFFT/2+1)),locs,pks,'ro','Markersize',3)
-        text(locs,pks, num2str(locs,'%.0f'));
-        axis ([0 1700 0 max(pks)*1.1]);
-      
         
         % find indexes in freq vectors
         dig_dec=find_digit(locs(1),locs(2));
@@ -99,15 +95,16 @@ PARAMETERS:
 input:
 -> x_sig := input signal
 -> e_th := energy threshold
+-> max_pow : = maximum power of the input signal
 ----------------------------------------------------------- 
 %}
 
-function [sil_detect] = silence_detector(x_sig,e_th)
+function [sil_detect] = silence_detector(x_sig,e_th,max_pow)
 
   % Energy signal
   res = sum(x_sig.^2);
 
-  if (res < e_th)
+  if (res/max_pow < e_th)
     % Silence detection
     sil_detect = true;
   else
