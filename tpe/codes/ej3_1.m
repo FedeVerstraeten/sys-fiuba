@@ -3,14 +3,14 @@
  @Title:   FIUBA - 66.74 Señales y sistemas
  @Project: TPE - Demodulación de tonos de discado de teléfono
 --------------------------------------------------------------
- @Filename: ej3.m
+ @Filename: ej3_1.m
 --------------------------------------------------------------
  @Authors:
     Verstraeten, Federico.
           federico.verstraeten at gmail dot com
 --------------------------------------------------------------
 
-Ejercicio N°3
+Ejercicio N°3.1
 
 ----------------------------------------------------------- 
 %}
