@@ -30,12 +30,13 @@ wav_file=[home_path 'data/output_signal_ej7.wav'];
 
 % Other example
 fs = 8000;
-[t, x] = tones_generator(fs, ['0' '9' '8' '2' 'A'], [70 40 9 8 8].*1e-2, [30 40 50 20 15].*1e-3); 
+[t, x] = tones_generator(fs, ['0' '9' '2' '3' '4'], [70 8 90 80 80].*1e-3, [100 100 100 20 15].*1e-3); 
 
+plot(t,x);
 
 % DTMF decoder
 % dtmf_decoder(x_in, fs, e_th=2%, time_div,min_peak)
-digits=dtmf_decoder(x,fs,0.02,50,0.3);
+digits=dtmf_decoder(x,fs,0.01,60,0.2);
 
 %%
 % Display decoded digits
